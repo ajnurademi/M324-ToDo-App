@@ -1,0 +1,44 @@
+name: .NET Tests Workflow
+
+on:
+  push:
+    branches:
+      - main  # Der Workflow wird bei Pushes auf den main-Branch ausgeführt
+  pull_request:
+    branches:
+      - main  # Der Workflow wird bei Pull-Requests auf den main-Branch ausgeführt
+
+jobs:
+  build:
+    runs-on: windows-latest  # Der Workflow wird auf einer Windows-Maschine ausgeführt
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3  # Holt das Repository
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0'  # Gibt die .NET Version an (wähle die Version, die du verwendest)
+
+      - name: Restore dependencies
+        run: dotnet restore  # Stellt die Abhängigkeiten des Projekts wieder her
+
+      - name: Build the project
+        run: dotnet build --configuration Release  # Baut das Projekt im Release-Modus
+
+      - name: Run tests
+        run: dotnet test --configuration Release  # Führt die Unit Tests aus
+
+      - name: Publish Test Results
+        if: always()  
+        run: |
+          mkdir test-results
+          dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx"
+          mv test_results.trx test-results/
+      
+      - name: Upload Test Results to GitHub
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: test-results/test_results.trx  # Lädt die Test-Ergebnisse als Artefakt hoch
