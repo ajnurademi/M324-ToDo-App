@@ -35,7 +35,7 @@ jobs:
         run: |
           mkdir test-results
           dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx"
-          mv test_results.trx test-results/
+          mv $(Build.SourcesDirectory)/ToDoAppTest/TestResults/test_results.trx test-results/
       
       - name: Upload Test Results to GitHub
         uses: actions/upload-artifact@v4  # Aktualisierte Version v4
