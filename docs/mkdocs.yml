@@ -1,0 +1,8 @@
+site_name: "M324 ToDo-App"
+site_url: "https://dein-github-username.github.io/M324-Dok_ToDoApp"
+theme:
+  name: "material"
+nav:
+  - Home: index.md
+  - Anleitung: guide.md
+repo_url: "https://github.com/dein-github-username/dein-repo"
