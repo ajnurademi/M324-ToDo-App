@@ -19,7 +19,7 @@ Das Projekt dient als Beispiel für den **Einsatz von Git und DevOps-Praktiken**
 
 ### 📂 Projekt klonen
 ```sh
-git clone https://github.com/dein-github-username/todo-app.git
+git clone https://github.com/ajnurademi/M324-ToDo-App
 cd todo-app
 ```
 
@@ -73,6 +73,5 @@ Wir nutzen **Semantic Versioning (SemVer)**:
 ---
 
 ## ✍ Autor
-📌 **Dein Name**  
-📧 **Deine E-Mail**  
-🔗 [GitHub-Profil](https://github.com/dein-github-username)
+🔗 [Ajnur Ademi](https://github.com/ajnurademi)
+🔗 [Aron Herbel](https://github.com/aronherbel)
