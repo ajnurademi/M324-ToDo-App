@@ -75,3 +75,5 @@ Wir nutzen **Semantic Versioning (SemVer)**:
 ## ✍ Autor
 🔗 [Ajnur Ademi](https://github.com/ajnurademi)
 🔗 [Aron Herbel](https://github.com/aronherbel)
+
+
