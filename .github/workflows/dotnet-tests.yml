@@ -30,15 +30,4 @@ jobs:
       - name: Run tests
         run: dotnet test --configuration Release  # Führt die Unit Tests aus
 
-      - name: Publish Test Results
-        if: always()  # Stellt sicher, dass die Test-Ergebnisse auch bei einem Fehler veröffentlicht werden
-        run: |
-          mkdir test-results
-          dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx"
-          mv $GITHUB_WORKSPACE/ToDoAppTest/TestResults/test_results.trx test-results/
-      
-      - name: Upload Test Results to GitHub
-        uses: actions/upload-artifact@v4  # Aktualisierte Version v4
-        with:
-          name: test-results
-          path: test-results/test_results.trx  # Lädt die Test-Ergebnisse als Artefakt hoch
+      # Der Schritt zum Veröffentlichen der Testergebnisse wurde entfernt
