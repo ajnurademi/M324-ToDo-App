@@ -19,7 +19,7 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0'  # Gibt die .NET Version an (wähle die Version, die du verwendest)
+          dotnet-version: '8.0'  # Gibt die .NET Version an (wähle die Version, die du verwendest)
 
       - name: Restore dependencies
         run: dotnet restore  # Stellt die Abhängigkeiten des Projekts wieder her
@@ -35,7 +35,7 @@ jobs:
         run: |
           mkdir test-results
           dotnet test --configuration Release --logger "trx;LogFileName=test_results.trx"
-          mv $(Build.SourcesDirectory)/ToDoAppTest/TestResults/test_results.trx test-results/
+          mv $GITHUB_WORKSPACE/ToDoAppTest/TestResults/test_results.trx test-results/
       
       - name: Upload Test Results to GitHub
         uses: actions/upload-artifact@v4  # Aktualisierte Version v4
